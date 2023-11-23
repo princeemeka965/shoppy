@@ -1,4 +1,4 @@
-import AdvertSection from "./modules/AdvertSection";
+import AdvertSection from "./modules/advertSection";
 import Header from "./modules/Header";
 
 export default function Home() {

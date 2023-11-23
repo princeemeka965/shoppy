@@ -75,30 +75,17 @@ export const CartIcon = () => (
   </div>
 );
 
-export const ShoppyBaImageI = () => (
-  <Image
-    alt="first-banner-shoppy"
-    src={"/image-shoppy-1.png"}
-    priority
-    quality={100}
-    fill
-    sizes="100%"
-    style={{
-      objectFit: "cover",
-    }}
-  />
-);
-
-export const ShoppyBaImageXI = () => (
-  <Image
-    alt="second-banner-shoppy"
-    src={"/image-shoppy-2.png"}
-    priority
-    quality={100}
-    fill
-    sizes="100%"
-    style={{
-      objectFit: "cover",
-    }}
-  />
+export const AvatarIcon = () => (
+  <div className="flex flex-col justify-center">
+    <Image
+      src="/Avatar.png"
+      width={40}
+      height={40}
+      style={{
+        height: "40px",
+        objectFit: "contain",
+      }}
+      alt="_logo"
+    />
+  </div>
 );

@@ -20,7 +20,7 @@ const config: Config = withMT({
       colors: {
         maniacBlue: "#E3F0FF",
         carrotOrange: "#F38332",
-        quoteCyalin: "#55BDC",
+        quoteCyalin: "#55BDC3",
       },
     },
   },
