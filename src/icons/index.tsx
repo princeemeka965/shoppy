@@ -74,3 +74,31 @@ export const CartIcon = () => (
     />
   </div>
 );
+
+export const ShoppyBaImageI = () => (
+  <Image
+    alt="first-banner-shoppy"
+    src={"/image-shoppy-1.png"}
+    priority
+    quality={100}
+    fill
+    sizes="100%"
+    style={{
+      objectFit: "cover",
+    }}
+  />
+);
+
+export const ShoppyBaImageXI = () => (
+  <Image
+    alt="second-banner-shoppy"
+    src={"/image-shoppy-2.png"}
+    priority
+    quality={100}
+    fill
+    sizes="100%"
+    style={{
+      objectFit: "cover",
+    }}
+  />
+);
