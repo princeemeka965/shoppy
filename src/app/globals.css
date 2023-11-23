@@ -4,4 +4,12 @@
 
 :root {
   --shoppy-background: #f7fafc;
+  --shoppy-black-color: #000000;
+}
+
+body {
+  margin: 0;
+  background-color: var(--shoppy-background);
+  font-family: "__Inter_e66fe9", "__Inter_Fallback_e66fe9" !important;
+  color: var(--shoppy-black-color);
 }
