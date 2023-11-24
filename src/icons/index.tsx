@@ -89,3 +89,18 @@ export const AvatarIcon = () => (
     />
   </div>
 );
+
+export const FilterIcon = () => (
+  <div className="flex flex-col justify-center">
+    <Image
+      src="/filter_alt.png"
+      width={15}
+      height={15}
+      style={{
+        height: "15px",
+        objectFit: "contain",
+      }}
+      alt="_logo"
+    />
+  </div>
+);

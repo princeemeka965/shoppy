@@ -18,6 +18,7 @@ const config: Config = withMT({
         sans: ["__Inter_e66fe9"],
       },
       colors: {
+        shoppyBlue: "#0D6EFD",
         maniacBlue: "#E3F0FF",
         carrotOrange: "#F38332",
         quoteCyalin: "#55BDC3",

@@ -13,3 +13,7 @@ body {
   font-family: "__Inter_e66fe9", "__Inter_Fallback_e66fe9" !important;
   color: var(--shoppy-black-color);
 }
+
+.flex-40 {
+  flex: 0 0 40%;
+}
