@@ -13,7 +13,7 @@ export const CategoriesList = (): any => {
         {
           _id: 456,
           _name: "Desktop",
-          _slug: "desktop",
+          _slug: "desktops",
         },
         {
           _id: 457,

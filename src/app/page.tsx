@@ -6,16 +6,20 @@ import { useEffect } from "react";
 import AdvertSection from "./modules/advertSection";
 import Header from "./modules/Header";
 import ProductSection from "./modules/productsSection";
-import { SET_PRODUCTS } from "@/reducers/productsDataSlice";
+import {
+  SET_FILTERED_PRODUCTS,
+  SET_PRODUCTS,
+} from "@/reducers/productsDataSlice";
 
 export default function Home() {
-  const { data, error, isLoading } = useGetProductsListingQuery("");
+  const { data, error, isLoading } = useGetProductsListingQuery<any>("");
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(SET_PRODUCTS(data));
-  }, []);
+    dispatch(SET_PRODUCTS(data?.products));
+    dispatch(SET_FILTERED_PRODUCTS(data?.products));
+  }, [isLoading]);
 
   return (
     <>
