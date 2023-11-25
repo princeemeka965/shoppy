@@ -61,8 +61,7 @@ export default function FilterLayout({
     categoryBrands: [],
   });
 
-  const [filteredCategory, setFilteredCategory] =
-    useState<string>("All Categories");
+  const [filteredCategory, setFilteredCategory] = useState<string>("");
   const [categoryTypes, setType] = useState<CategoriesList[]>([]);
   const [categoryBrands, setBrand] = useState<CategoriesList[]>([]);
 
@@ -82,6 +81,8 @@ export default function FilterLayout({
 
     // set filtering Payload
     setFilteringData({ category: data, categoryTypes: [], categoryBrands: [] });
+    setSelectedBrands([]);
+    setSelectedTypes([]);
   };
 
   const selectedCategoryTypes = (data: string): void => {
@@ -251,15 +252,19 @@ export default function FilterLayout({
             style={{ borderRadius: "0px" }}
           >
             {/** MOBILE VIEW FOR FILTERS SELECTION BLOCK */}
-            <div className="flex flex-row lg:hidden md:hidden gap-2">
+            <div className="flex flex-row lg:hidden md:hidden gap-2 pr-4">
               <Menu>
                 <MenuHandler>
                   <Button
-                    className="bg-white text-black w-full flex justify-center gap-1"
-                    style={{ flex: "0 0 40%", height: "fit-content" }}
+                    className="bg-white text-black w-full focus:shadow-md flex justify-center gap-5"
+                    style={{
+                      flex: "0 0 50%",
+                      height: "fit-content",
+                      borderRadius: "0px",
+                    }}
                   >
                     <span className="flex text-xs font-medium capitalize">
-                      {filteredCategory}
+                      Category({filteredCategory === "" ? 0 : 1})
                     </span>
                     <span className="flex">
                       <FilterIcon />
@@ -282,8 +287,12 @@ export default function FilterLayout({
               <Menu>
                 <MenuHandler>
                   <Button
-                    className="bg-white text-black w-full flex justify-center gap-8"
-                    style={{ flex: "0 0 40%", height: "fit-content" }}
+                    className="bg-white text-black w-full focus:shadow-md flex justify-center gap-5"
+                    style={{
+                      flex: "0 0 50%",
+                      height: "fit-content",
+                      borderRadius: "0px",
+                    }}
                   >
                     <span className="flex text-xs font-medium capitalize">
                       Type({arraySelectedTypes.length})
@@ -318,8 +327,12 @@ export default function FilterLayout({
               <Menu>
                 <MenuHandler>
                   <Button
-                    className="bg-white text-black w-full flex justify-center gap-8"
-                    style={{ flex: "0 0 40%", height: "fit-content" }}
+                    className="bg-white text-black w-full focus:shadow-md flex justify-center gap-5 mr-10"
+                    style={{
+                      flex: "0 0 50%",
+                      height: "fit-content",
+                      borderRadius: "0px",
+                    }}
                   >
                     <span className="flex text-xs font-medium capitalize">
                       Brand({arraySelectedBrands.length})
@@ -361,15 +374,7 @@ export default function FilterLayout({
 
             <div className="flex flex-row px-1 gap-5">
               {filteringPayload.category !== "" && (
-                <Badge
-                  content={
-                    <XMarkIcon
-                      className="h-3 w-3 text-white"
-                      strokeWidth={2.5}
-                    />
-                  }
-                  className="bg-black border-2 p-0 min-h-[20px] min-w-[20px] border-white shadow-lg shadow-black/20"
-                >
+                <Badge className="hidden border-2 p-0 min-h-[20px] min-w-[20px] border-white shadow-lg shadow-black/20">
                   <span className="text-xs bg-shoppyBlue font-semibold text-white p-2 border shadow-lg rounded-md capitalize">
                     {filteringPayload.category}
                   </span>
@@ -377,15 +382,7 @@ export default function FilterLayout({
               )}
 
               {filteringPayload.categoryTypes.length > 0 && (
-                <Badge
-                  content={
-                    <XMarkIcon
-                      className="h-3 w-3 text-white"
-                      strokeWidth={2.5}
-                    />
-                  }
-                  className="bg-black border-2 p-0 min-h-[20px] min-w-[20px] gap-2 border-white shadow-lg shadow-black/20"
-                >
+                <Badge className="hidden border-2 p-0 min-h-[20px] min-w-[20px] gap-2 border-white shadow-lg shadow-black/20">
                   <div className="text-xs bg-shoppyBlue text-white p-2 border shadow-lg rounded-md flex gap-2 capitalize">
                     <span className="font-semibold">
                       {filteringPayload.categoryTypes[0]}
@@ -400,15 +397,7 @@ export default function FilterLayout({
               )}
 
               {filteringPayload.categoryBrands.length > 0 && (
-                <Badge
-                  content={
-                    <XMarkIcon
-                      className="h-3 w-3 text-white"
-                      strokeWidth={2.5}
-                    />
-                  }
-                  className="bg-black border-2 p-0 min-h-[20px] min-w-[20px] gap-2 border-white shadow-lg shadow-black/20"
-                >
+                <Badge className="hidden border-2 p-0 min-h-[20px] min-w-[20px] gap-2 border-white shadow-lg shadow-black/20">
                   <div className="text-xs bg-shoppyBlue px-3 text-white p-2 border shadow-lg rounded-md flex gap-2 capitalize">
                     <span className="font-semibold">
                       {filteringPayload.categoryBrands[0]}
@@ -423,7 +412,7 @@ export default function FilterLayout({
               )}
             </div>
           </Card>
-          <div className="flex gap-x-16 gap-y-4 lg:px-0 md:px-0 px-3 flex-wrap">
+          <div className="flex gap-x-8 gap-y-4 lg:px-0 md:px-0 px-3 flex-wrap lg:justify-start md:justify-start justify-center">
             {children}
           </div>
         </div>

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux/es/exports";
 import { RootState } from "@/store/store";
 import FilterLayout from "./filterLayout";
 import Image from "next/image";
-import { Card } from "@material-tailwind/react";
+import { Card, Rating } from "@material-tailwind/react";
 
 export default function ProductSection() {
   const products = useSelector(
@@ -15,28 +15,12 @@ export default function ProductSection() {
           {products
             ? products.map((product: any, index: number) => (
                 <Card
-                  className="flex w-full lg:w-1/4 md:w-1/4 justify-between gap-1 p-3"
+                  className="flex w-3/4 lg:w-[228px] md:w-[228px] justify-between gap-1 p-3"
                   style={{ borderRadius: "0px" }}
                   key={index}
                 >
                   <div className="flex flex-col gap-5">
                     <div className="flex justify-center w-full">
-                      <Image
-                        src={
-                          product.images[0] ||
-                          "/fc153780fbd6853471e97e4f4ac6466c.png"
-                        }
-                        width={200}
-                        height={200}
-                        style={{
-                          height: "180px",
-                          objectFit: "contain",
-                          borderRadius: "12px",
-                        }}
-                        alt="product_logo"
-                        className="hidden lg:flex md:flex"
-                      />
-
                       <Image
                         src={
                           product.images[0] ||
@@ -50,14 +34,19 @@ export default function ProductSection() {
                           borderRadius: "12px",
                         }}
                         alt="product_logo"
-                        className="lg:hidden md:hidden"
                       />
                     </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-center">
+                    <div className="flex flex-col border-t py-3 gap-3">
+                      <div className="flex">
                         <p className="text-black text-sm font-semibold">
-                          {product.title}
+                          ${product.price}
                         </p>
+                      </div>
+                      <div className="flex">
+                        <Rating value={Math.floor(product.rating)} />
+                      </div>
+                      <div className="flex">
+                        <p className="text-black text-sm">{product.title}</p>
                       </div>
                     </div>
                   </div>
