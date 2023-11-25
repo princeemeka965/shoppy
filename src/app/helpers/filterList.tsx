@@ -64,8 +64,11 @@ export const FilterProducts = (payload: FilterPayload, products: any): any => {
 
   // Filter products based on the types of category selected
   if (payload.categoryTypes.length > 0) {
-    filteredProducts = products.filter((product: any) =>
-      payload.categoryTypes.includes(product.category)
+    filteredProducts = products.filter(
+      (product: any) =>
+        payload.categoryTypes.includes(product.category) &&
+        getSubCategories.includes(product.category) &&
+        getBrands.includes(product.brand)
     );
   }
 

@@ -14,7 +14,7 @@ import {
   MenuList,
   Typography,
 } from "@material-tailwind/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import { useSelector } from "react-redux/es/exports";
 import { useDispatch } from "react-redux";
 import { SET_FILTERED_PRODUCTS } from "@/reducers/productsDataSlice";
@@ -38,7 +38,15 @@ interface FilterPayload {
   categoryBrands: string[];
 }
 
-export default function FilterLayout({ productItems }: any) {
+interface FilterLayoutProps {
+  productItems: any; // Replace 'any' with the actual type of productItems
+  children: ReactNode;
+}
+
+export default function FilterLayout({
+  productItems,
+  children,
+}: FilterLayoutProps) {
   const dispatch = useDispatch();
 
   const products = useSelector(
@@ -157,8 +165,9 @@ export default function FilterLayout({ productItems }: any) {
                       <Checkbox
                         color="blue"
                         className="text-black"
-                        crossOrigin
+                        crossOrigin="true"
                         checked={filteredCategory === categories._slug}
+                        onChange={() => selectedCategory(categories._slug)}
                       />
                     </ListItemPrefix>
                     <Typography color="blue-gray" className="font-medium">
@@ -187,8 +196,9 @@ export default function FilterLayout({ productItems }: any) {
                       <Checkbox
                         color="blue"
                         className="text-black"
-                        crossOrigin
+                        crossOrigin="true"
                         checked={arraySelectedTypes.includes(categories._slug)}
+                        onChange={() => selectedCategoryTypes(categories._slug)}
                       />
                     </ListItemPrefix>
                     <Typography color="blue-gray" className="font-medium">
@@ -217,8 +227,11 @@ export default function FilterLayout({ productItems }: any) {
                       <Checkbox
                         color="blue"
                         className="text-black"
-                        crossOrigin
+                        crossOrigin="true"
                         checked={arraySelectedBrands.includes(categories._name)}
+                        onChange={() =>
+                          selectedCategoryBrands(categories._name)
+                        }
                       />
                     </ListItemPrefix>
                     <Typography color="blue-gray" className="font-medium">
@@ -234,7 +247,7 @@ export default function FilterLayout({ productItems }: any) {
 
         <div className="lg:w-3/4 md:w-3/4 w-full flex flex-col gap-2">
           <Card
-            className="p-2 flex w-full flex-row lg:flex-col md:flex-col overflow-x-auto gap-2"
+            className="p-2 flex w-full flex-col overflow-x-auto gap-2"
             style={{ borderRadius: "0px" }}
           >
             {/** MOBILE VIEW FOR FILTERS SELECTION BLOCK */}
@@ -288,7 +301,7 @@ export default function FilterLayout({ productItems }: any) {
                     >
                       <Checkbox
                         color="blue"
-                        crossOrigin
+                        crossOrigin="true"
                         checked={arraySelectedTypes.includes(
                           categoryType._slug
                         )}
@@ -324,7 +337,7 @@ export default function FilterLayout({ productItems }: any) {
                     >
                       <Checkbox
                         color="blue"
-                        crossOrigin
+                        crossOrigin="true"
                         checked={arraySelectedBrands.includes(
                           categoryBrand._name
                         )}
@@ -342,7 +355,7 @@ export default function FilterLayout({ productItems }: any) {
 
             <div className="lg:flex md:flex hidden p-2">
               <p className="text-base text-black capitalize">
-                {productItems.length} items in <b>{filteredCategory}</b>
+                {productItems?.length} items in <b>{filteredCategory}</b>
               </p>
             </div>
 
@@ -410,6 +423,9 @@ export default function FilterLayout({ productItems }: any) {
               )}
             </div>
           </Card>
+          <div className="flex gap-x-16 gap-y-4 lg:px-0 md:px-0 px-3 flex-wrap">
+            {children}
+          </div>
         </div>
       </div>
     </>
