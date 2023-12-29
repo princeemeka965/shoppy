@@ -15,7 +15,7 @@ const config: Config = withMT({
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        sans: ["__Inter_e66fe9", "__Inter_Fallback_e66fe9"],
+        sans: ["__Montserrat_cce811", "__Montserrat_Fallback_cce811"],
       },
       colors: {
         shoppyBlue: "#0D6EFD",

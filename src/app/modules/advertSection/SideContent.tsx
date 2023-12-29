@@ -7,7 +7,7 @@ import { Button } from "@material-tailwind/react";
 export const SideContent = (): ReactNode => {
   return (
     <>
-      <div className="py-3 px-6 flex flex-col gap-3 rounded-md bg-maniacBlue">
+      <div className="py-3 px-6 flex flex-col gap-1 rounded-md bg-maniacBlue">
         <div className="flex gap-4">
           <AvatarIcon />
           <div className="flex flex-col gap-3 justify-center">
@@ -22,7 +22,7 @@ export const SideContent = (): ReactNode => {
 
       <div className="py-3 px-6 flex flex-col gap-3 rounded-md bg-carrotOrange">
         <p className="text-base text-white">
-          Get US $10 off <br /> with a new supplier
+          Get US $10 off with a new supplier
         </p>
         <div className="flex flex-col gap-2">
           <Button className="bg-white text-black">Check out now</Button>
@@ -31,7 +31,7 @@ export const SideContent = (): ReactNode => {
 
       <div className="py-3 px-6 flex flex-col gap-3 rounded-md bg-quoteCyalin">
         <p className="text-base text-white">
-          Send quotes with <br /> supplier preferences
+          Send quotes with supplier preferences
         </p>
       </div>
     </>

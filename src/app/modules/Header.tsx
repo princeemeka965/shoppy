@@ -10,13 +10,13 @@ import {
 import {
   Typography,
   Navbar,
-  Button,
   IconButton,
   Collapse,
+  Button,
 } from "@material-tailwind/react";
 import { useState, useEffect } from "react";
 
-export default function Header() {
+export default function Header(props: any) {
   const [openNav, setOpenNav] = useState<boolean>(false);
 
   useEffect(() => {
@@ -26,13 +26,17 @@ export default function Header() {
     );
   }, []);
 
+  const emitSignUp = (data: Boolean) => {
+    props.activateSignUp(data);
+  };
+
   const navList = (
     <ul className="mt-2 flex flex-col gap-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <div className="flex gap-1">
         <ProfileIcon />
         <Typography as="li" variant="small" className="p-1 font-normal">
           <a href="#" className="flex items-center text-black">
-            Pages
+            Profile
           </a>
         </Typography>
       </div>
@@ -59,6 +63,16 @@ export default function Header() {
             My Cart
           </a>
         </Typography>
+      </div>
+      <div className="flex gap-3">
+        <div className="flex">
+          <Button color="blue" onClick={() => emitSignUp(true)}>
+            Sign Up
+          </Button>
+        </div>
+        <div className="flex">
+          <Button className="bg-white text-black">Login</Button>
+        </div>
       </div>
     </ul>
   );

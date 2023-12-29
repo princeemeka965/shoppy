@@ -1,12 +1,12 @@
 "use client";
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Provider } from "react-redux";
 import store from "@/store/store";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Montserrat({ subsets: ["latin"] });
 
 const metadata: { title: string; description: string } = {
   title: "Shoppy",
