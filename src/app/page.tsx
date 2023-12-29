@@ -11,6 +11,8 @@ import {
   SET_PRODUCTS,
 } from "@/reducers/productsDataSlice";
 import SignUp from "./modules/authentication/SignUp";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const { data, error, isLoading } = useGetProductsListingQuery<any>("");
@@ -31,11 +33,24 @@ export default function Home() {
     <>
       <div className="w-full h-full flex flex-col gap-1">
         <Header activateSignUp={toggleSignUpModal} />
-        <AdvertSection />
+        <AdvertSection activateSignUp={toggleSignUpModal} />
         {/**  <ProductSection /> **/}
       </div>
 
       {isSignUp ? <SignUp deactivateSignUp={toggleSignUpModal} /> : null}
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }

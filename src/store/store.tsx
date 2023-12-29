@@ -1,4 +1,5 @@
 import productsDataSlice from "@/reducers/productsDataSlice";
+import usersDataSlice from "@/reducers/usersDataSlice";
 import { productsApi, signUpApi } from "@/services";
 import { configureStore } from "@reduxjs/toolkit";
 
@@ -7,6 +8,7 @@ const store: any = configureStore({
     productsData: productsDataSlice,
     [productsApi.reducerPath]: productsApi.reducer,
     [signUpApi.reducerPath]: signUpApi.reducer,
+    userData: usersDataSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()

@@ -1,4 +1,5 @@
 "use client";
+import { SET_USER } from "@/reducers/usersDataSlice";
 import { useCreateAccountMutation } from "@/services";
 import {
   Button,
@@ -12,8 +13,11 @@ import {
 } from "@material-tailwind/react";
 import { ReactNode, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 export default function SignUp(props: any): ReactNode {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState<boolean>(true);
 
   const handleOpen = () => {
@@ -27,19 +31,28 @@ export default function SignUp(props: any): ReactNode {
     formState: { errors },
   } = useForm();
 
-  const [createAccount, { data, error, isLoading }] =
-    useCreateAccountMutation();
+  const [createAccount, {}] = useCreateAccountMutation();
 
   const submitData = async (data: any) => {
     try {
       // Call the mutation hook with the form data
-      const result = await createAccount(data);
+      const result: any = await createAccount(data);
 
       // Handle the result as needed (e.g., check result.data, etc.)
-      console.log("Mutation result:", result);
-    } catch (error) {
+
+      props.deactivateSignUp(true);
+      result.error
+        ? toast.error(result.error.data.message)
+        : toast.success(result.data.message, { autoClose: 3000 });
+
+      const stateData = {
+        name: result.data.user.name,
+        username: result.data.user.username,
+      };
+
+      dispatch(SET_USER(stateData));
+    } catch (error: any) {
       // Handle error (e.g., show error message)
-      console.error("Mutation error:", error);
     }
   };
 

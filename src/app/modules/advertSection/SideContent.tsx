@@ -4,7 +4,11 @@ import { ReactNode } from "react";
 import { AvatarIcon } from "@/icons";
 import { Button } from "@material-tailwind/react";
 
-export const SideContent = (): ReactNode => {
+export const SideContent = (props: any): ReactNode => {
+  const emitSignUp = (data: Boolean) => {
+    props.activateSignUp(data);
+  };
+
   return (
     <>
       <div className="py-3 px-6 flex flex-col gap-1 rounded-md bg-maniacBlue">
@@ -15,7 +19,9 @@ export const SideContent = (): ReactNode => {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <Button color="blue">Join now</Button>
+          <Button color="blue" onClick={() => emitSignUp(true)}>
+            Join now
+          </Button>
           <Button className="bg-white text-black">Login</Button>
         </div>
       </div>

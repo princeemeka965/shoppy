@@ -5,7 +5,10 @@ import { CarouselBlock } from "./Carousel";
 import { SideContent } from "./SideContent";
 import { CategoriesBlock } from "./CategoriesBlock";
 
-export default function AdvertSection() {
+export default function AdvertSection(props: any) {
+  const emitSignUpModal = () => {
+    props.activateSignUp(true);
+  };
   return (
     <>
       <div className="flex lg:px-20 w-full lg:py-3">
@@ -20,7 +23,7 @@ export default function AdvertSection() {
             <CarouselBlock />
           </div>
           <div className="lg:flex md:flex hidden flex-col w-1/5 gap-3 h-full">
-            <SideContent />
+            <SideContent activateSignUp={emitSignUpModal} />
           </div>
         </Card>
       </div>
