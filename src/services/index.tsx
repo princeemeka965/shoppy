@@ -30,5 +30,22 @@ export const signUpApi = createApi({
   }),
 });
 
+export const loginApi = createApi({
+  reducerPath: "loginApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://api-music-app-3dww.onrender.com",
+  }),
+  endpoints: (builder: any) => ({
+    login: builder.mutation({
+      query: (data: any) => ({
+        url: "/authenticate/login",
+        method: "POST",
+        body: data,
+      }),
+    }),
+  }),
+});
+
 export const { useGetProductsListingQuery } = productsApi;
 export const { useCreateAccountMutation } = signUpApi;
+export const { useLoginMutation } = loginApi;

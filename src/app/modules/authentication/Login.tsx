@@ -1,6 +1,6 @@
 "use client";
 import { SET_USER } from "@/reducers/usersDataSlice";
-import { useCreateAccountMutation } from "@/services";
+import { useLoginMutation } from "@/services";
 import {
   Button,
   Dialog,
@@ -8,7 +8,6 @@ import {
   DialogFooter,
   Card,
   Input,
-  Checkbox,
   Typography,
 } from "@material-tailwind/react";
 import { ReactNode, useState } from "react";
@@ -16,13 +15,13 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 
-export default function SignUp(props: any): ReactNode {
+export default function Login(props: any): ReactNode {
   const dispatch = useDispatch();
   const [open, setOpen] = useState<boolean>(true);
 
   const handleOpen = () => {
     setOpen(!open);
-    props.deactivateSignUp(true);
+    props.deactivateLogin(true);
   };
 
   const {
@@ -31,23 +30,22 @@ export default function SignUp(props: any): ReactNode {
     formState: { errors },
   } = useForm();
 
-  const [createAccount, {}] = useCreateAccountMutation();
+  const [loginAccount, {}] = useLoginMutation();
 
   const submitData = async (data: any) => {
     try {
       // Call the mutation hook with the form data
-      const result: any = await createAccount(data);
+      const result: any = await loginAccount(data);
 
       // Handle the result as needed (e.g., check result.data, etc.)
-
-      props.deactivateSignUp(true);
+      props.deactivateLogin(true);
       result.error
         ? toast.error(result.error.data.message)
         : toast.success(result.data.message, { autoClose: 3000 });
 
       const stateData = {
-        name: result.data.user.name,
-        username: result.data.user.username,
+        name: result.data.userData[0].name,
+        username: result.data.userData[0].username,
       };
 
       dispatch(SET_USER(stateData));
@@ -66,58 +64,12 @@ export default function SignUp(props: any): ReactNode {
           <DialogBody>
             <Card color="transparent" shadow={false}>
               <Typography variant="h4" color="blue-gray">
-                Sign Up
+                Login
               </Typography>
               <Typography color="gray" className="my-2 font-normal">
-                Welcome to Shoppy! Enter your details to register.
+                Welcome back to Shoppy!
               </Typography>
               <div className="mb-1 flex flex-col gap-6">
-                <Typography variant="h6" color="blue-gray" className="-mb-3">
-                  Your Name
-                </Typography>
-                <Input
-                  size="lg"
-                  placeholder="Enter full names"
-                  className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                  labelProps={{
-                    className: "before:content-none after:content-none",
-                  }}
-                  crossOrigin={""}
-                  {...register("name", {
-                    required: "Name is required",
-                  })}
-                />
-                {errors.name ? (
-                  <p className="-mt-4 text-red-700">
-                    {(errors.name as any).message}
-                  </p>
-                ) : null}
-
-                <Typography variant="h6" color="blue-gray" className="-mb-3">
-                  Your Email
-                </Typography>
-                <Input
-                  size="lg"
-                  placeholder="name@mail.com"
-                  className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                  labelProps={{
-                    className: "before:content-none after:content-none",
-                  }}
-                  crossOrigin={""}
-                  {...register("email", {
-                    required: "Email is required",
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                      message: "Invalid email address",
-                    },
-                  })}
-                />
-                {errors.email ? (
-                  <p className="-mt-4 text-red-700">
-                    {(errors.email as any).message}
-                  </p>
-                ) : null}
-
                 <Typography variant="h6" color="blue-gray" className="-mb-3">
                   Username
                 </Typography>
@@ -161,37 +113,16 @@ export default function SignUp(props: any): ReactNode {
                   </p>
                 ) : null}
               </div>
-              <Checkbox
-                label={
-                  <Typography
-                    variant="small"
-                    color="gray"
-                    className="flex items-center font-normal hidden lg:flex md:flex"
-                  >
-                    I agree the
-                    <a
-                      href="#"
-                      className="font-medium transition-colors hover:text-gray-900"
-                    >
-                      &nbsp;Terms and Conditions
-                    </a>
-                  </Typography>
-                }
-                containerProps={{ className: "-ml-2.5" }}
-                crossOrigin={""}
-                color="blue"
-                className="hidden lg:flex md:flex"
-              />
             </Card>{" "}
           </DialogBody>
           <DialogFooter>
             <Button color="blue" fullWidth type="submit">
-              sign up
+              Login
             </Button>
             <Typography color="gray" className="mt-4 text-center font-normal">
-              Already have an account?{" "}
+              Do not have an account?{" "}
               <a href="#" className="font-medium text-gray-900">
-                Sign In
+                Sign Up
               </a>
             </Typography>
           </DialogFooter>

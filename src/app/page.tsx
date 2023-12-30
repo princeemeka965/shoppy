@@ -13,10 +13,12 @@ import {
 import SignUp from "./modules/authentication/SignUp";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Login from "./modules/authentication/Login";
 
 export default function Home() {
   const { data, error, isLoading } = useGetProductsListingQuery<any>("");
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
+  const [isLogin, setIsLogin] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -29,15 +31,26 @@ export default function Home() {
     setIsSignUp(!isSignUp);
   };
 
+  const toggleLoginModal = () => {
+    setIsLogin(!isLogin);
+  };
+
   return (
     <>
       <div className="w-full h-full flex flex-col gap-1">
-        <Header activateSignUp={toggleSignUpModal} />
-        <AdvertSection activateSignUp={toggleSignUpModal} />
+        <Header
+          activateSignUp={toggleSignUpModal}
+          activateLogin={toggleLoginModal}
+        />
+        <AdvertSection
+          activateSignUp={toggleSignUpModal}
+          activateLogin={toggleLoginModal}
+        />
         {/**  <ProductSection /> **/}
       </div>
 
       {isSignUp ? <SignUp deactivateSignUp={toggleSignUpModal} /> : null}
+      {isLogin ? <Login deactivateLogin={toggleLoginModal} /> : null}
 
       <ToastContainer
         position="top-right"

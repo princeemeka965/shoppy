@@ -9,6 +9,9 @@ export default function AdvertSection(props: any) {
   const emitSignUpModal = () => {
     props.activateSignUp(true);
   };
+  const emitLoginModal = () => {
+    props.activateLogin(true);
+  };
   return (
     <>
       <div className="flex lg:px-20 w-full lg:py-3">
@@ -23,7 +26,10 @@ export default function AdvertSection(props: any) {
             <CarouselBlock />
           </div>
           <div className="lg:flex md:flex hidden flex-col w-1/5 gap-3 h-full">
-            <SideContent activateSignUp={emitSignUpModal} />
+            <SideContent
+              activateSignUp={emitSignUpModal}
+              activateLogin={emitLoginModal}
+            />
           </div>
         </Card>
       </div>
