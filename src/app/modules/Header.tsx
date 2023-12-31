@@ -27,8 +27,6 @@ export default function Header(props: any) {
   const [openNav, setOpenNav] = useState<boolean>(false);
   const userData = useSelector((state: RootState) => state.userData.user);
 
-  console.log(userData);
-
   useEffect(() => {
     window.addEventListener(
       "resize",
