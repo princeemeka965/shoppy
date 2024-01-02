@@ -18,6 +18,7 @@ import { toast } from "react-toastify";
 export default function Login(props: any): ReactNode {
   const dispatch = useDispatch();
   const [open, setOpen] = useState<boolean>(true);
+  const [isLoading, setLoading] = useState<boolean>(false);
 
   const handleOpen = () => {
     setOpen(!open);
@@ -33,6 +34,7 @@ export default function Login(props: any): ReactNode {
   const [loginAccount, {}] = useLoginMutation();
 
   const submitData = async (data: any) => {
+    setLoading(true);
     try {
       // Call the mutation hook with the form data
       const result: any = await loginAccount(data);
@@ -49,8 +51,10 @@ export default function Login(props: any): ReactNode {
       };
 
       dispatch(SET_USER(stateData));
+      setLoading(false);
     } catch (error: any) {
       // Handle error (e.g., show error message)
+      setLoading(false);
     }
   };
 
@@ -116,7 +120,7 @@ export default function Login(props: any): ReactNode {
             </Card>{" "}
           </DialogBody>
           <DialogFooter>
-            <Button color="blue" fullWidth type="submit">
+            <Button color="blue" fullWidth type="submit" disabled={isLoading}>
               Login
             </Button>
             <Typography color="gray" className="mt-4 text-center font-normal">

@@ -14,13 +14,12 @@ import SignUp from "./modules/authentication/SignUp";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./modules/authentication/Login";
-import Alexia from "./modules/Alexia";
+import DealDay from "./modules/dealDay";
 
 export default function Home() {
   const { data, error, isLoading } = useGetProductsListingQuery<any>("");
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
   const [isLogin, setIsLogin] = useState<boolean>(false);
-  const [openAlexia, setOpenAlexia] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -37,10 +36,6 @@ export default function Home() {
     setIsLogin(!isLogin);
   };
 
-  const toggleAlexiaModal = () => {
-    setOpenAlexia(!openAlexia);
-  };
-
   return (
     <>
       <div className="w-full h-full flex flex-col gap-1">
@@ -51,14 +46,13 @@ export default function Home() {
         <AdvertSection
           activateSignUp={toggleSignUpModal}
           activateLogin={toggleLoginModal}
-          activateAlexia={toggleAlexiaModal}
         />
+        <DealDay />
         {/**  <ProductSection /> **/}
       </div>
 
       {isSignUp ? <SignUp deactivateSignUp={toggleSignUpModal} /> : null}
       {isLogin ? <Login deactivateLogin={toggleLoginModal} /> : null}
-      {openAlexia ? <Alexia /> : null}
 
       <ToastContainer
         position="top-right"

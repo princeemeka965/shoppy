@@ -10,7 +10,7 @@
 body {
   margin: 0;
   background-color: var(--shoppy-background);
-  color: var(--shoppy-black-color);
+  color: var(--shoppy-black-color) !important;
 }
 
 .flex-40 {

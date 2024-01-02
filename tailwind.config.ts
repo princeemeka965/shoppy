@@ -22,6 +22,8 @@ const config: Config = withMT({
         maniacBlue: "#E3F0FF",
         carrotOrange: "#F38332",
         quoteCyalin: "#55BDC3",
+        redFade: "#FFE3E3",
+        cyalinRed: "#EB001B",
       },
     },
   },

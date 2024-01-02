@@ -104,3 +104,78 @@ export const FilterIcon = () => (
     />
   </div>
 );
+
+export const WatchIcon = (props: any) => (
+  <div className="flex flex-col justify-center">
+    <Image
+      src="/watch.png"
+      width={props.size ? props.size : 140}
+      height={props.size ? props.size : 140}
+      style={{
+        height: `${props.size ? props.size : 140}px`,
+        objectFit: "contain",
+      }}
+      alt="_watch"
+    />
+  </div>
+);
+
+export const LaptopIcon = (props: any) => (
+  <div className="flex flex-col justify-center">
+    <Image
+      src="/laptop.png"
+      width={props.size ? props.size : 140}
+      height={props.size ? props.size : 140}
+      style={{
+        height: `${props.size ? props.size : 140}px`,
+        objectFit: "contain",
+      }}
+      alt="_laptop"
+    />
+  </div>
+);
+
+export const CameraIcon = (props: any) => (
+  <div className="flex flex-col justify-center">
+    <Image
+      src="/camera.png"
+      width={props.size ? props.size : 140}
+      height={props.size ? props.size : 140}
+      style={{
+        height: `${props.size ? props.size : 140}px`,
+        objectFit: "contain",
+      }}
+      alt="_watch"
+    />
+  </div>
+);
+
+export const HeadPhoneIcon = (props: any) => (
+  <div className="flex flex-col justify-center">
+    <Image
+      src="/headPhone.png"
+      width={props.size ? props.size : 140}
+      height={props.size ? props.size : 140}
+      style={{
+        height: `${props.size ? props.size : 140}px`,
+        objectFit: "contain",
+      }}
+      alt="_watch"
+    />
+  </div>
+);
+
+export const PhoneIcon = (props: any) => (
+  <div className="flex flex-col justify-center">
+    <Image
+      src="/phone.png"
+      width={props.size ? props.size : 140}
+      height={props.size ? props.size : 140}
+      style={{
+        height: `${props.size ? props.size : 140}px`,
+        objectFit: "contain",
+      }}
+      alt="_watch"
+    />
+  </div>
+);

@@ -18,10 +18,6 @@ export const SideContent = (props: any): ReactNode => {
     props.activateLogin(data);
   };
 
-  const openAlexia = (data: Boolean) => {
-    props.activateAlexia(data);
-  };
-
   return (
     <>
       <div className="py-3 px-6 flex flex-col gap-1 rounded-md bg-maniacBlue">
@@ -64,16 +60,11 @@ export const SideContent = (props: any): ReactNode => {
             </div>
             <div className="flex flex-col my-1 gap-2">
               <p className="text-xs text-black">
-                Get wide knowledge of different products with our AI sales Rep{" "}
+                Explore Shoppy and do have a wonderful shopping experience
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <Button
-                className="bg-white text-black"
-                onClick={() => openAlexia(true)}
-              >
-                Chat with Alexia
-              </Button>
+              <Button className="bg-white text-black">Contact us</Button>
             </div>
           </>
         )}

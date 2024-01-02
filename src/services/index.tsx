@@ -46,23 +46,6 @@ export const loginApi = createApi({
   }),
 });
 
-export const chatAlexiaApi = createApi({
-  reducerPath: "chatAlexiaApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://api-music-app-3dww.onrender.com",
-  }),
-  endpoints: (builder: any) => ({
-    chatAlexia: builder.mutation({
-      query: (data: any) => ({
-        url: "/ai/alexia",
-        method: "POST",
-        body: data,
-      }),
-    }),
-  }),
-});
-
 export const { useGetProductsListingQuery } = productsApi;
 export const { useCreateAccountMutation } = signUpApi;
 export const { useLoginMutation } = loginApi;
-export const { useChatAlexiaMutation } = chatAlexiaApi;

@@ -12,9 +12,6 @@ export default function AdvertSection(props: any) {
   const emitLoginModal = () => {
     props.activateLogin(true);
   };
-  const emitAlexiaModal = () => {
-    props.activateAlexia(true);
-  };
   return (
     <>
       <div className="flex lg:px-20 w-full lg:py-3">
@@ -32,7 +29,6 @@ export default function AdvertSection(props: any) {
             <SideContent
               activateSignUp={emitSignUpModal}
               activateLogin={emitLoginModal}
-              activateAlexia={emitAlexiaModal}
             />
           </div>
         </Card>
