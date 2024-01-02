@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import AdvertSection from "./modules/advertSection";
 import Header from "./modules/Header";
-//import ProductSection from "./modules/productsSection";
+import ProductSection from "./modules/productsSection";
 import {
   SET_FILTERED_PRODUCTS,
   SET_PRODUCTS,
@@ -48,7 +48,7 @@ export default function Home() {
           activateLogin={toggleLoginModal}
         />
         <DealDay />
-        {/**  <ProductSection /> **/}
+        <ProductSection />
       </div>
 
       {isSignUp ? <SignUp deactivateSignUp={toggleSignUpModal} /> : null}

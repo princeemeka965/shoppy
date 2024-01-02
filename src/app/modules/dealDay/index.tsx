@@ -52,13 +52,10 @@ export default function DealDay() {
           className="w-full flex flex-row h-auto gap-3"
           style={{ borderRadius: "0px" }}
         >
-          <div
-            className="w-full flex flex-col lg:flex-row md:flex-row"
-            style={{ overflow: "auto" }}
-          >
+          <div className="w-full flex flex-col lg:flex-row md:flex-row">
             <div
               className="lg:w-1/4 md:w-1/4 w-full h-auto flex flex-col gap-3 
-            lg:relative md:relative fixed lg:justify-start md:justify-start justify-between
+            lg:relative md:relative lg:justify-start md:justify-start justify-between
             lg:border-r-2 md:border-r-2 lg:border-b-0 border-b-2 lg:p-2 md:p-2 p-3"
             >
               <div className="flex flex-col gap-1 lg:p-3 md:p-3">
@@ -94,104 +91,109 @@ export default function DealDay() {
               </div>
             </div>
 
-            <div className="lg:w-3/4 md:w-3/4 w-[1000px] lg:mt-0 md:mt-0 mt-32 flex">
-              <div className="lg:w-1/5 md:w-1/5 w-full border-r-2 px-2 py-3 flex flex-col gap-2">
-                <div className="w-full lg:flex md:flex hidden justify-center">
-                  <WatchIcon />
-                </div>
-                <div className="w-full lg:hidden md:hidden flex justify-center">
-                  <WatchIcon size={70} />
-                </div>
-                <div className="w-full flex justify-center mt-2">
-                  <p className="lg:text-base md:text-base text-sm text-black">
-                    Smart Watches
-                  </p>
-                </div>
-                <div className="w-full flex justify-center">
-                  <div className="w-auto py-1 px-3 rounded-full bg-redFade">
-                    <span className="text-sm font-medium text-cyalinRed">
-                      -25%
-                    </span>
+            <div
+              className="lg:w-3/4 md:w-3/4 w-full"
+              style={{ overflow: "auto" }}
+            >
+              <div className="lg:w-full md:w-full w-[1000px] lg:mt-0 md:mt-0 flex">
+                <div className="lg:w-1/5 md:w-1/5 w-full border-r-2 px-2 py-3 flex flex-col gap-2">
+                  <div className="w-full lg:flex md:flex hidden justify-center">
+                    <WatchIcon />
+                  </div>
+                  <div className="w-full lg:hidden md:hidden flex justify-center">
+                    <WatchIcon size={70} />
+                  </div>
+                  <div className="w-full flex justify-center mt-2">
+                    <p className="lg:text-base md:text-base text-sm text-black">
+                      Smart Watches
+                    </p>
+                  </div>
+                  <div className="w-full flex justify-center">
+                    <div className="w-auto py-1 px-3 rounded-full bg-redFade">
+                      <span className="text-sm font-medium text-cyalinRed">
+                        -25%
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="lg:w-1/5 md:w-1/5 w-full border-r-2 px-2 py-3 flex flex-col gap-2">
-                <div className="w-full lg:flex md:flex hidden justify-center">
-                  <LaptopIcon />
-                </div>
-                <div className="w-full lg:hidden md:hidden flex justify-center">
-                  <LaptopIcon size={70} />
-                </div>
-                <div className="w-full flex justify-center mt-2">
-                  <p className="lg:text-base md:text-base text-sm text-black">
-                    Laptops
-                  </p>
-                </div>
-                <div className="w-full flex justify-center">
-                  <div className="w-auto py-1 px-3 rounded-full bg-redFade">
-                    <span className="text-sm font-medium text-cyalinRed">
-                      -15%
-                    </span>
+                <div className="lg:w-1/5 md:w-1/5 w-full border-r-2 px-2 py-3 flex flex-col gap-2">
+                  <div className="w-full lg:flex md:flex hidden justify-center">
+                    <LaptopIcon />
+                  </div>
+                  <div className="w-full lg:hidden md:hidden flex justify-center">
+                    <LaptopIcon size={70} />
+                  </div>
+                  <div className="w-full flex justify-center mt-2">
+                    <p className="lg:text-base md:text-base text-sm text-black">
+                      Laptops
+                    </p>
+                  </div>
+                  <div className="w-full flex justify-center">
+                    <div className="w-auto py-1 px-3 rounded-full bg-redFade">
+                      <span className="text-sm font-medium text-cyalinRed">
+                        -15%
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="lg:w-1/5 md:w-1/5 w-full border-r-2 px-2 py-3 flex flex-col gap-2">
-                <div className="w-full lg:flex md:flex hidden justify-center">
-                  <CameraIcon />
-                </div>
-                <div className="w-full lg:hidden md:hidden flex justify-center">
-                  <CameraIcon size={70} />
-                </div>
-                <div className="w-full flex justify-center mt-2">
-                  <p className="lg:text-base md:text-base text-sm text-black">
-                    GoPro Cameras
-                  </p>
-                </div>
-                <div className="w-full flex justify-center">
-                  <div className="w-auto py-1 px-3 rounded-full bg-redFade">
-                    <span className="text-sm font-medium text-cyalinRed">
-                      -40%
-                    </span>
+                <div className="lg:w-1/5 md:w-1/5 w-full border-r-2 px-2 py-3 flex flex-col gap-2">
+                  <div className="w-full lg:flex md:flex hidden justify-center">
+                    <CameraIcon />
+                  </div>
+                  <div className="w-full lg:hidden md:hidden flex justify-center">
+                    <CameraIcon size={70} />
+                  </div>
+                  <div className="w-full flex justify-center mt-2">
+                    <p className="lg:text-base md:text-base text-sm text-black">
+                      GoPro Cameras
+                    </p>
+                  </div>
+                  <div className="w-full flex justify-center">
+                    <div className="w-auto py-1 px-3 rounded-full bg-redFade">
+                      <span className="text-sm font-medium text-cyalinRed">
+                        -40%
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="lg:w-1/5 md:w-1/5 w-full border-r-2 px-2 py-3 flex flex-col gap-2">
-                <div className="w-full lg:flex md:flex hidden justify-center">
-                  <HeadPhoneIcon />
-                </div>
-                <div className="w-full lg:hidden md:hidden flex justify-center">
-                  <HeadPhoneIcon size={70} />
-                </div>
-                <div className="w-full flex justify-center mt-2">
-                  <p className="lg:text-base md:text-base text-sm text-black">
-                    Headphones
-                  </p>
-                </div>
-                <div className="w-full flex justify-center">
-                  <div className="w-auto py-1 px-3 rounded-full bg-redFade">
-                    <span className="text-sm font-medium text-cyalinRed">
-                      -25%
-                    </span>
+                <div className="lg:w-1/5 md:w-1/5 w-full border-r-2 px-2 py-3 flex flex-col gap-2">
+                  <div className="w-full lg:flex md:flex hidden justify-center">
+                    <HeadPhoneIcon />
+                  </div>
+                  <div className="w-full lg:hidden md:hidden flex justify-center">
+                    <HeadPhoneIcon size={70} />
+                  </div>
+                  <div className="w-full flex justify-center mt-2">
+                    <p className="lg:text-base md:text-base text-sm text-black">
+                      Headphones
+                    </p>
+                  </div>
+                  <div className="w-full flex justify-center">
+                    <div className="w-auto py-1 px-3 rounded-full bg-redFade">
+                      <span className="text-sm font-medium text-cyalinRed">
+                        -25%
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="lg:w-1/5 md:w-1/5 w-full border-r-2 px-2 py-3 flex flex-col gap-2">
-                <div className="w-full lg:flex md:flex hidden justify-center">
-                  <PhoneIcon />
-                </div>
-                <div className="w-full lg:hidden md:hidden flex justify-center">
-                  <PhoneIcon size={70} />
-                </div>
-                <div className="w-full flex justify-center mt-2">
-                  <p className="lg:text-base md:text-base text-sm text-black">
-                    Canon Phones
-                  </p>
-                </div>
-                <div className="w-full flex justify-center">
-                  <div className="w-auto py-1 px-3 rounded-full bg-redFade">
-                    <span className="text-sm font-medium text-cyalinRed">
-                      -25%
-                    </span>
+                <div className="lg:w-1/5 md:w-1/5 w-full border-r-2 px-2 py-3 flex flex-col gap-2">
+                  <div className="w-full lg:flex md:flex hidden justify-center">
+                    <PhoneIcon />
+                  </div>
+                  <div className="w-full lg:hidden md:hidden flex justify-center">
+                    <PhoneIcon size={70} />
+                  </div>
+                  <div className="w-full flex justify-center mt-2">
+                    <p className="lg:text-base md:text-base text-sm text-black">
+                      Canon Phones
+                    </p>
+                  </div>
+                  <div className="w-full flex justify-center">
+                    <div className="w-auto py-1 px-3 rounded-full bg-redFade">
+                      <span className="text-sm font-medium text-cyalinRed">
+                        -25%
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

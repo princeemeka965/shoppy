@@ -14,7 +14,7 @@ export default function AdvertSection(props: any) {
   };
   return (
     <>
-      <div className="flex lg:px-20 w-full lg:py-3">
+      <div className="flex lg:px-20 w-full lg:py-3 mt-16">
         <Card
           className="w-full flex flex-row lg:p-5 md:p-5 h-full gap-3"
           style={{ borderRadius: "0px" }}
