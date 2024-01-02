@@ -179,3 +179,67 @@ export const PhoneIcon = (props: any) => (
     />
   </div>
 );
+
+export const IndustryIcon = () => (
+  <>
+    <Image
+      alt="IndustryIcon"
+      src={"/industry_hubs.png"}
+      priority
+      quality={100}
+      fill
+      sizes="100%"
+      style={{
+        objectFit: "cover",
+      }}
+    />
+  </>
+);
+
+export const CustomizeProductsIcon = () => (
+  <>
+    <Image
+      alt="ProductsIcon"
+      src={"/customize_products.png"}
+      priority
+      quality={100}
+      fill
+      sizes="100%"
+      style={{
+        objectFit: "cover",
+      }}
+    />
+  </>
+);
+
+export const ShippingIcon = () => (
+  <>
+    <Image
+      alt="shippingIcon"
+      src={"/shipping.png"}
+      priority
+      quality={100}
+      fill
+      sizes="100%"
+      style={{
+        objectFit: "cover",
+      }}
+    />
+  </>
+);
+
+export const InspectionIcon = () => (
+  <>
+    <Image
+      alt="inspectionIcon"
+      src={"/inspection_hub.png"}
+      priority
+      quality={100}
+      fill
+      sizes="100%"
+      style={{
+        objectFit: "cover",
+      }}
+    />
+  </>
+);
