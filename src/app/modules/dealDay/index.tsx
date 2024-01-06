@@ -9,6 +9,7 @@ import {
 } from "@/icons";
 import { Card } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function DealDay() {
   const [countdown, setCountdown] = useState({
@@ -17,6 +18,8 @@ export default function DealDay() {
     minutes: 0,
     seconds: 0,
   });
+  const [animate, setAnimate] = useState<boolean>(true);
+
   useEffect(() => {
     const targetDate: any = new Date();
     targetDate.setDate(targetDate.getDate() + 4);
@@ -52,7 +55,12 @@ export default function DealDay() {
           className="w-full flex flex-row h-auto gap-3"
           style={{ borderRadius: "0px" }}
         >
-          <div className="w-full flex flex-col lg:flex-row md:flex-row">
+          <motion.div
+            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="w-full flex flex-col lg:flex-row md:flex-row"
+          >
             <div
               className="lg:w-1/4 md:w-1/4 w-full h-auto flex flex-col gap-3 
             lg:relative md:relative lg:justify-start md:justify-start justify-between
@@ -198,7 +206,7 @@ export default function DealDay() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </Card>
       </div>
     </>

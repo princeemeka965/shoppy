@@ -7,6 +7,7 @@ import {
   ShippingIcon,
 } from "@/icons";
 import { Card } from "@material-tailwind/react";
+import { motion } from "framer-motion";
 
 export default function ServicesSection() {
   return (
@@ -16,7 +17,12 @@ export default function ServicesSection() {
           Our extra services
         </p>
 
-        <div className="flex w-full lg:flex-row md:flex-row flex-col gap-3">
+        <motion.div
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1.5 }}
+          className="flex w-full lg:flex-row md:flex-row flex-col gap-3"
+        >
           <Card
             className="lg:w-1/4 md:w-1/2 w-full h-auto flex flex-col"
             style={{ borderRadius: "0px" }}
@@ -137,7 +143,7 @@ export default function ServicesSection() {
               </p>
             </div>
           </Card>
-        </div>
+        </motion.div>
       </div>
     </>
   );
