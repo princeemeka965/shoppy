@@ -16,6 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Login from "./modules/authentication/Login";
 import DealDay from "./modules/dealDay";
 import ServicesSection from "./modules/servicesSection";
+import SuppliersRegion from "./modules/regionSection";
 
 export default function Home() {
   const { data, error, isLoading } = useGetProductsListingQuery<any>("");
@@ -51,6 +52,7 @@ export default function Home() {
         <DealDay />
         <ProductSection />
         <ServicesSection />
+        <SuppliersRegion />
       </div>
 
       {isSignUp ? <SignUp deactivateSignUp={toggleSignUpModal} /> : null}

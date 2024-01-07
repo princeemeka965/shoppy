@@ -24,11 +24,9 @@ export default function ProductSection() {
                   initial={{ scale: 0 }}
                   transition={{ duration: 1 }}
                   key={index}
+                  className="flex w-49 lg:w-[246px] md:w-[246px] justify-between gap-1"
                 >
-                  <Card
-                    className="flex w-49 lg:w-[246px] md:w-[246px] justify-between gap-1 p-3"
-                    style={{ borderRadius: "0px" }}
-                  >
+                  <Card className="w-full p-3" style={{ borderRadius: "0px" }}>
                     <div className="flex flex-col gap-5">
                       <div className="flex justify-center w-full">
                         <Image
@@ -78,7 +76,10 @@ export default function ProductSection() {
                           </Typography>
                         </div>
                         <div className="flex">
-                          <Link href={`/product/${product.id}`}>
+                          <Link
+                            href={`/product/${product.id}`}
+                            className="underline"
+                          >
                             <p className="text-black text-sm">
                               {product.title}
                             </p>
