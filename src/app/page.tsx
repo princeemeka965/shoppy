@@ -17,6 +17,8 @@ import Login from "./modules/authentication/Login";
 import DealDay from "./modules/dealDay";
 import ServicesSection from "./modules/servicesSection";
 import SuppliersRegion from "./modules/regionSection";
+import NewsLetter from "./modules/newsLetter";
+import FooterSection from "./modules/footerSection";
 
 export default function Home() {
   const { data, error, isLoading } = useGetProductsListingQuery<any>("");
@@ -53,6 +55,8 @@ export default function Home() {
         <ProductSection />
         <ServicesSection />
         <SuppliersRegion />
+        <NewsLetter />
+        <FooterSection />
       </div>
 
       {isSignUp ? <SignUp deactivateSignUp={toggleSignUpModal} /> : null}

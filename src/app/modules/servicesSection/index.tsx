@@ -20,7 +20,7 @@ export default function ServicesSection() {
         <motion.div
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0 }}
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 2.5 }}
           className="flex w-full lg:flex-row md:flex-row flex-col gap-3"
         >
           <Card

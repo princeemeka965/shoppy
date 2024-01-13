@@ -25,6 +25,7 @@ const config: Config = withMT({
         redFade: "#FFE3E3",
         cyalinRed: "#EB001B",
         greySky: "#D1E7FF",
+        grayLyanin: "#EFF2F4",
       },
     },
   },
