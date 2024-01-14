@@ -13,6 +13,7 @@ import {
   Navbar,
   IconButton,
   Collapse,
+  Input,
   Button,
   Menu,
   MenuHandler,
@@ -161,6 +162,24 @@ export default function Header(props: any) {
             >
               Shoppy
             </Typography>
+          </div>
+          <div className="relative flex w-1/2 z-5">
+            <Input
+              type="email"
+              placeholder="Search Shoppy"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: "before:content-none after:content-none",
+              }}
+              crossOrigin=""
+            />
+            <Button
+              size="sm"
+              color={"blue"}
+              className="!absolute right-1 top-1 rounded"
+            >
+              Search
+            </Button>
           </div>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
