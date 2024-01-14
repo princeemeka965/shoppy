@@ -163,7 +163,7 @@ export default function Header(props: any) {
               Shoppy
             </Typography>
           </div>
-          <div className="relative flex w-1/2 z-5">
+          <div className="relative lg:flex md:flex hidden w-1/3 z-5">
             <Input
               type="email"
               placeholder="Search Shoppy"

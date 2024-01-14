@@ -19,6 +19,7 @@ import ServicesSection from "./modules/servicesSection";
 import SuppliersRegion from "./modules/regionSection";
 import NewsLetter from "./modules/newsLetter";
 import FooterSection from "./modules/footerSection";
+import { Button, Input } from "@material-tailwind/react";
 
 export default function Home() {
   const { data, error, isLoading } = useGetProductsListingQuery<any>("");
@@ -47,6 +48,26 @@ export default function Home() {
           activateSignUp={toggleSignUpModal}
           activateLogin={toggleLoginModal}
         />
+        <div className="lg:hidden md:hidden flex w-full p-1 mt-16">
+          <div className="relative w-full flex">
+            <Input
+              type="email"
+              placeholder="Search Shoppy"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: "before:content-none after:content-none",
+              }}
+              crossOrigin=""
+            />
+            <Button
+              size="sm"
+              color={"blue"}
+              className="!absolute right-1 top-1 rounded"
+            >
+              Search
+            </Button>
+          </div>
+        </div>
         <AdvertSection
           activateSignUp={toggleSignUpModal}
           activateLogin={toggleLoginModal}
