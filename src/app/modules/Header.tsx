@@ -7,6 +7,7 @@ import {
   OrderIcon,
   ProfileIcon,
 } from "@/icons";
+import { SET_USER } from "@/reducers/usersDataSlice";
 import { RootState } from "@/store/store";
 import {
   Typography,
@@ -22,11 +23,12 @@ import {
   Avatar,
 } from "@material-tailwind/react";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Header(props: any) {
   const [openNav, setOpenNav] = useState<boolean>(false);
   const userData = useSelector((state: RootState) => state.userData.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.addEventListener(
@@ -41,6 +43,10 @@ export default function Header(props: any) {
 
   const emitLogin = (data: Boolean) => {
     props.activateLogin(data);
+  };
+
+  const signOut = () => {
+    dispatch(SET_USER({}));
   };
 
   const navList = (
@@ -77,7 +83,10 @@ export default function Header(props: any) {
                 </div>
               </MenuHandler>
               <MenuList>
-                <MenuItem className="flex items-center gap-2 ">
+                <MenuItem
+                  className="flex items-center gap-2 "
+                  onClick={() => signOut()}
+                >
                   <svg
                     width="16"
                     height="14"
