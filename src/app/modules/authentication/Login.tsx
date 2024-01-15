@@ -120,8 +120,14 @@ export default function Login(props: any): ReactNode {
             </Card>{" "}
           </DialogBody>
           <DialogFooter>
-            <Button color="blue" fullWidth type="submit" disabled={isLoading}>
-              Login
+            <Button
+              color="blue"
+              fullWidth
+              type="submit"
+              className="flex justify-center"
+              disabled={isLoading}
+            >
+              {!isLoading ? "Login" : <div className="custom-loader"></div>}
             </Button>
             <Typography color="gray" className="mt-4 text-center font-normal">
               Do not have an account?{" "}

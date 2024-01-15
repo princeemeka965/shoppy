@@ -1,6 +1,9 @@
 "use client";
 
-import { useGetProductsListingQuery } from "@/services";
+import {
+  useGetDummyListingQuery,
+  useGetProductsListingQuery,
+} from "@/services";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import AdvertSection from "./modules/advertSection";
@@ -23,6 +26,8 @@ import { Button, Input } from "@material-tailwind/react";
 
 export default function Home() {
   const { data, error, isLoading } = useGetProductsListingQuery<any>("");
+  const { err } = useGetDummyListingQuery<any>("");
+
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
   const [isLogin, setIsLogin] = useState<boolean>(false);
 

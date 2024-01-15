@@ -46,6 +46,19 @@ export const loginApi = createApi({
   }),
 });
 
+export const dummyApi = createApi({
+  reducerPath: "dummyApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://api-music-app-3dww.onrender.com",
+  }),
+  endpoints: (builder: any) => ({
+    getDummyListing: builder.query({
+      query: () => `/artiste/tracks/2356674`,
+    }),
+  }),
+});
+
 export const { useGetProductsListingQuery } = productsApi;
 export const { useCreateAccountMutation } = signUpApi;
 export const { useLoginMutation } = loginApi;
+export const { useGetDummyListingQuery } = dummyApi;

@@ -19,6 +19,7 @@ import { toast } from "react-toastify";
 export default function SignUp(props: any): ReactNode {
   const dispatch = useDispatch();
   const [open, setOpen] = useState<boolean>(true);
+  const [isLoading, setLoading] = useState<boolean>(false);
 
   const handleOpen = () => {
     setOpen(!open);
@@ -34,6 +35,7 @@ export default function SignUp(props: any): ReactNode {
   const [createAccount, {}] = useCreateAccountMutation();
 
   const submitData = async (data: any) => {
+    setLoading(true);
     try {
       // Call the mutation hook with the form data
       const result: any = await createAccount(data);
@@ -51,7 +53,9 @@ export default function SignUp(props: any): ReactNode {
       };
 
       dispatch(SET_USER(stateData));
+      setLoading(false);
     } catch (error: any) {
+      setLoading(false);
       // Handle error (e.g., show error message)
     }
   };
@@ -185,8 +189,14 @@ export default function SignUp(props: any): ReactNode {
             </Card>{" "}
           </DialogBody>
           <DialogFooter>
-            <Button color="blue" fullWidth type="submit">
-              sign up
+            <Button
+              color="blue"
+              fullWidth
+              className="flex justify-center"
+              type="submit"
+              disabled={isLoading}
+            >
+              {!isLoading ? "Sign up" : <div className="custom-loader"></div>}
             </Button>
             <Typography color="gray" className="mt-4 text-center font-normal">
               Already have an account?{" "}
