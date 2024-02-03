@@ -19,12 +19,12 @@ export default function ProductSection() {
 
   return (
     <>
-      <div className="flex flex-col lg:px-20 w-full px-3 lg:py-3">
+      <div className="flex flex-col lg:px-20 w-full px-2 lg:py-3">
         <p className="text-base w-full font-semibold my-3 px-1 lg:px-0 md:px-0">
           Recommended items
         </p>
 
-        <div className="flex w-full flex-wrap lg:gap-8 md:gap-8 gap-2">
+        <div className="flex w-full flex-wrap lg:gap-8 md:gap-8 gap-3">
           {products
             ? products.map((product: any, index: number) => (
                 <motion.div
