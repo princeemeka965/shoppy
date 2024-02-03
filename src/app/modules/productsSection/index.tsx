@@ -4,11 +4,19 @@ import Image from "next/image";
 import { Card, Rating, Typography } from "@material-tailwind/react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function ProductSection() {
   const products = useSelector(
     (state: RootState) => state.productsData.filteredProducts
   );
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    // Set hasAnimated to true once the component mounts
+    setHasAnimated(true);
+  }, []);
+
   return (
     <>
       <div className="flex flex-col lg:px-20 w-full px-3 lg:py-3">
@@ -21,7 +29,7 @@ export default function ProductSection() {
             ? products.map((product: any, index: number) => (
                 <motion.div
                   whileInView={{ scale: 1 }}
-                  initial={{ scale: 0 }}
+                  initial={hasAnimated ? { scale: 1 } : { scale: 0 }}
                   transition={{ duration: 1 }}
                   key={index}
                   className="flex w-49 lg:w-[246px] md:w-[246px] justify-between gap-1"

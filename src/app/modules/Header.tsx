@@ -160,7 +160,7 @@ export default function Header(props: any) {
 
   return (
     <div className="h-max w-full fixed" style={{ zIndex: 9 }}>
-      <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-24">
+      <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-20">
         <div className="flex items-center justify-between">
           <div className="flex gap-2">
             <LogoIcon />
@@ -191,7 +191,7 @@ export default function Header(props: any) {
             </Button>
           </div>
           <div className="flex items-center gap-4">
-            <div className="mr-4 hidden lg:block">{navList}</div>
+            <div className="hidden lg:block">{navList}</div>
             <IconButton
               variant="text"
               className="ml-auto h-6 w-6 text-black hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
