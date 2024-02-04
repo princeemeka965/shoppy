@@ -1,21 +1,21 @@
-import { useSelector } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { RootState } from "@/store/store";
 import Image from "next/image";
 import { Card, Rating, Typography } from "@material-tailwind/react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import React from "react";
+import { SET_VIEW_PRODUCT } from "@/reducers/productsDataSlice";
 
-export default function ProductSection() {
+interface ProductProps {
+  loading: Boolean;
+}
+
+const ProductSection: React.FC<ProductProps> = ({ loading }) => {
   const products = useSelector(
     (state: RootState) => state.productsData.filteredProducts
   );
-  const [hasAnimated, setHasAnimated] = useState(false);
 
-  useEffect(() => {
-    // Set hasAnimated to true once the component mounts
-    setHasAnimated(true);
-  }, []);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -27,10 +27,7 @@ export default function ProductSection() {
         <div className="flex w-full flex-wrap lg:gap-8 md:gap-8 gap-3">
           {products
             ? products.map((product: any, index: number) => (
-                <motion.div
-                  whileInView={{ scale: 1 }}
-                  initial={hasAnimated ? { scale: 1 } : { scale: 0 }}
-                  transition={{ duration: 1 }}
+                <div
                   key={index}
                   className="flex w-49 lg:w-[246px] md:w-[246px] justify-between gap-1"
                 >
@@ -87,6 +84,7 @@ export default function ProductSection() {
                           <Link
                             href={`/product/${product.id}`}
                             className="underline"
+                            onClick={() => dispatch(SET_VIEW_PRODUCT(product))}
                           >
                             <p className="text-black text-sm">
                               {product.title}
@@ -96,11 +94,13 @@ export default function ProductSection() {
                       </div>
                     </div>
                   </Card>
-                </motion.div>
+                </div>
               ))
             : ""}
         </div>
       </div>
     </>
   );
-}
+};
+
+export default ProductSection;

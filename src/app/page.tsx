@@ -6,23 +6,23 @@ import {
 } from "@/services";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import AdvertSection from "./modules/advertSection";
-import Header from "./modules/Header";
-import ProductSection from "./modules/productsSection";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Button, Input } from "@material-tailwind/react";
 import {
   SET_FILTERED_PRODUCTS,
   SET_PRODUCTS,
 } from "@/reducers/productsDataSlice";
-import SignUp from "./modules/authentication/SignUp";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import FooterSection from "@/app/components/footerSection";
+import Header from "@/app/components/Header";
+import AdvertSection from "./modules/advertSection";
+import ProductSection from "./modules/productsSection";
 import Login from "./modules/authentication/Login";
 import DealDay from "./modules/dealDay";
 import ServicesSection from "./modules/servicesSection";
 import SuppliersRegion from "./modules/regionSection";
 import NewsLetter from "./modules/newsLetter";
-import FooterSection from "./modules/footerSection";
-import { Button, Input } from "@material-tailwind/react";
+import SignUp from "./modules/authentication/SignUp";
 
 export default function Home() {
   const { data, error, isLoading } = useGetProductsListingQuery<any>("");
@@ -78,7 +78,7 @@ export default function Home() {
           activateLogin={toggleLoginModal}
         />
         <DealDay />
-        <ProductSection />
+        <ProductSection loading={isLoading} />
         <ServicesSection />
         <SuppliersRegion />
         <NewsLetter />

@@ -22,6 +22,7 @@ import {
   MenuItem,
   Avatar,
 } from "@material-tailwind/react";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -164,13 +165,12 @@ export default function Header(props: any) {
         <div className="flex items-center justify-between">
           <div className="flex gap-2">
             <LogoIcon />
-            <Typography
-              as="a"
-              href="#"
+            <Link
+              href="/"
               className="mr-4 cursor-pointer py-1.5 font-medium text-black"
             >
               Shoppy
-            </Typography>
+            </Link>
           </div>
           <div className="relative lg:flex md:flex hidden w-1/3 z-5">
             <Input
